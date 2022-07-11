@@ -1,0 +1,25 @@
+<?php
+
+// main.php
+
+include("Dokument.php");
+include("Pismo.php");
+include("Email.php");
+
+echo "1) Pismo
+2) Email\n";
+
+$odabir = readline("Odaberite vrtu dokumenta koji saljete: ");
+
+if($odabir == "1")
+{
+    $dokument = new Pismo();
+}
+else
+{
+    $dokument = new Email();
+}
+
+$dokument->Posalji();
+
+?>
