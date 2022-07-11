@@ -1,0 +1,54 @@
+<?php
+
+// Dokument.php
+
+abstract class Dokument
+{
+    protected $autor;
+    protected $datum;
+    protected $tekst;
+
+    abstract function Posalji();
+
+    function __construct()
+    {
+        $this->setAutor();
+        $this->setDatum();
+        $this->setTekst();
+    }
+
+    public function getAutor()
+    {
+        return $this->autor;
+    }
+
+    protected function setAutor()
+    {
+        $this->autor = readline("Autor: ");
+        return true;
+    }
+
+    public function getDatum()
+    {
+        return $this->datum;
+    }
+
+    protected function setDatum()
+    {
+        $this->datum = date("Y-m-d");
+        return true;
+    }    
+
+    public function getTekst()
+    {
+        return $this->tekst;
+    }
+
+    protected function setTekst()
+    {
+        $this->tekst = readline("Tekst: ");
+        return true;
+    }    
+}
+
+?>
