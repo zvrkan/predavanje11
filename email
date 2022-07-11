@@ -1,0 +1,56 @@
+<?php
+
+// Email.php
+
+class Email extends Dokument
+{
+    protected $to;
+    protected $subject;
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->setTo();
+        $this->setSubject();
+    }
+
+    public function getTo()
+    {
+        return $this->to;
+    }
+
+    protected function setTo()
+    {
+        $this->to = readline("To: ");
+        return true;
+    }   
+    
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    protected function setSubject()
+    {
+        $this->subject = readline("Subject: ");
+        return true;
+    }    
+    
+    protected function setAutor()
+    {
+        $this->autor = readline("From: ");
+        return true;
+    }
+
+    public function Posalji()
+    {
+        echo "
+        Šalje se E-mail
+        From: ".$this->getAutor()."
+        Datum: ".$this->getDatum()."
+        Subject: ".$this->getSubject()."
+        To: ".$this->getTo()."";   
+    }
+}
+
+?>
