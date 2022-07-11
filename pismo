@@ -1,0 +1,66 @@
+<?php
+
+// Pismo.php
+
+class Pismo extends Dokument
+{
+    protected $naslov;
+    protected $adresa = array();
+    protected $primatelj;
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->setNaslov();
+        $this->setAdresa();
+        $this->setPrimatelj();
+    }
+
+    public function getNaslov()
+    {
+        return $this->naslov;
+    }
+
+    protected function setNaslov()
+    {
+        $this->naslov = readline("Naslov: ");
+        return true;
+    }
+
+    public function getAdresa()
+    {
+        return $this->adresa;
+    }
+
+    protected function setAdresa()
+    {
+        $this->adresa["ulica"] = readline("Ulica: ");
+        $this->adresa["pbr"] = readline("Pbr: ");
+        $this->adresa["grad"] = readline("Grad: ");
+        return true;
+    }
+
+    public function getPrimatelj()
+    {
+        return $this->primatelj;
+    }
+
+    protected function setPrimatelj()
+    {
+        $this->primatelj = readline("Primatelj: ");
+        return true;
+    }    
+
+    public function Posalji()
+    {
+        echo "
+        Šalje se Pismo
+        Autor: ".$this->getAutor()."
+        Datum: ".$this->getDatum()."
+        Naslov: ".$this->getNaslov()."
+        Primatelj: ".$this->getPrimatelj()."
+        Adresa: ".implode(" ", $this->getAdresa())."";
+    }
+}
+
+?>
